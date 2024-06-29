@@ -7,7 +7,7 @@ const port = 5000;
 // Replace 'YOUR_TELEGRAM_BOT_TOKEN' with your actual bot token
 const bot = new TelegramBot('7454719460:AAHaqbR2QL0W-9LTtmT3BJpR4mIONmOXLgc', { polling: true });
 
-mongoose.connect('mongodb://localhost:27017/telegram-bot', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://kayumkhan:kayumkhan2004@cluster0.ctdsalv.mongodb.net/telegram-bot')
   .then(() => console.log('Connected to MongoDB'))
   .catch((error) => console.error('Error connecting to MongoDB:', error));
 
