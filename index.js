@@ -2,12 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const TelegramBot = require('node-telegram-bot-api');
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // Replace 'YOUR_TELEGRAM_BOT_TOKEN' with your actual bot token
-const bot = new TelegramBot('7454719460:AAHaqbR2QL0W-9LTtmT3BJpR4mIONmOXLgc', { polling: true });
+const bot = new TelegramBot('7454719460:AAHaqbR2QL0W-9LTtmT3BJpR4mIONmOXLgc', { polling: true }); // TODO: Replace 'YOUR_TELEGRAM_BOT_TOKEN' with your actual bot token
 
-mongoose.connect('mongodb+srv://kayumkhan:kayumkhan2004@cluster0.ctdsalv.mongodb.net/telegram-bot')
+mongoose.connect('mongodb+srv://kayumkhan:kayumkhan2004@cluster0.ctdsalv.mongodb.net/telegram-bot', { useNewUrlParser: true, useUnifiedTopology: true }) // TODO: Replace '<username>' and '<password>' with your MongoDB credentials
   .then(() => console.log('Connected to MongoDB'))
   .catch((error) => console.error('Error connecting to MongoDB:', error));
 
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', userSchema);
-  
+
 const messageSchema = new mongoose.Schema({
   text: String,
   links: [String]
@@ -93,8 +93,8 @@ bot.onText(/\/start/, async (msg) => {
       const options = {
         reply_markup: {
           inline_keyboard: [
-            [{ text: 'Join Gift Code Channel', url: 'https://t.me/akib7627' }],
-            [{ text: 'Register Now', url: 'https://tpplay.in/#/register?invitationCode=52151101341' }],
+            [{ text: 'Join Gift Code Channel', url: 'https://t.me/akib7627' }], // TODO: Replace with your actual channel link
+            [{ text: 'Register Now', url: 'https://tpplay.in/#/register?invitationCode=52151101341' }], // TODO: Replace with your actual registration link
             [{ text: 'Claim', callback_data: 'claim' }]
           ]
         },
