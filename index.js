@@ -103,6 +103,17 @@ bot.onText(/\/start/, async (msg) => {
       bot.sendMessage(chatId, welcomeMessage, options);
     } else {
       const mainMenuMessage = '🏡 Welcome To Main Menu\n🎁 You Won Rs.100 Bonus Cash';
+      const options = {
+        reply_markup: {
+          inline_keyboard: [
+            [{ text: 'Join Gift Code Channel', url: 'https://t.me/akib7627' }], // TODO: Replace with your actual channel link
+            [{ text: 'Register Now', url: 'https://tpplay.in/#/register?invitationCode=52151101341' }], // TODO: Replace with your actual registration link
+            [{ text: 'Claim', callback_data: 'claim' }]
+          ]
+        },
+        parse_mode: 'Markdown'
+      };
+      bot.sendMessage(chatId, welcomeMessage, options);
       sendMessageWithButtons(chatId, mainMenuMessage);
     }
   } catch (error) {
