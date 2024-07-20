@@ -4,7 +4,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const app = express();
 const port = process.env.PORT || 5000;
 
-// Replace 'YOUR_TELEGRAM_BOT_TOKEN' with your actual bot token
+
 const bot = new TelegramBot('7454719460:AAHaqbR2QL0W-9LTtmT3BJpR4mIONmOXLgc', { polling: true }); // TODO: Replace 'YOUR_TELEGRAM_BOT_TOKEN' with your actual bot token
 
 mongoose.connect('mongodb+srv://kayumkhan:kayumkhan2004@cluster0.ctdsalv.mongodb.net/telegram-bot', { useNewUrlParser: true, useUnifiedTopology: true }) // TODO: Replace '<username>' and '<password>' with your MongoDB credentials
